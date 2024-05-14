@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
 <div id="dragonviewer" width="256" height="256" ></div>
 <input id="blk" type="number" style="display:none" style="text-align:right" />
 
@@ -1725,3 +1736,7 @@ function generateHtmlBasedOnBlockNumber(blockNumber) {
     document.getElementById('dragonviewer').innerHTML = htmlContent
 }
 </script>
+
+</body>
+
+</html>
