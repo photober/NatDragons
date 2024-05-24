@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1738,5 +1738,6 @@ function generateHtmlBasedOnBlockNumber(blockNumber) {
 </script>
 
 </body>
+?>
 
 </html>
