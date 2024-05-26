@@ -853,10 +853,10 @@ function displayAlienDiamond(number) {
 }
 
 
-function c9a9(number) {
+function c6a6(number) {
     const numberStr = number.toString()
     const count = (numberStr.match(/9/g) || []).length
-    return count >= 2 ? "c9a9" : null
+    return count >= 2 ? "c6a6" : null
 }
 
 function displayFish(number) {
@@ -1669,7 +1669,7 @@ function generateHtmlBasedOnBlockNumber(blockNumber) {
     let alienDiamond = cp6(blockNumber) ? displayAlienDiamond() : ""
     let btcMedal = cs5(blockNumber) ? displayBtcMedal() : ""
     let dumbbell = cs6(blockNumber) ? displaydumbbell() : ""
-    let fish = c9a9(blockNumber) ? displayFish() : ""
+    let fish = c6a6(blockNumber) ? displayFish() : ""
     let cat = c869(blockNumber) ? displayCat() : ""
     let btcKey = c999(blockNumber) ? displayBtcKey() : ""
     let headHalo = c9999(blockNumber) ? displayHeadHalo() : ""
@@ -1792,6 +1792,3 @@ function generateHtmlBasedOnBlockNumber(blockNumber) {
         });
     </script>
 </body>
-
-
-</html>
