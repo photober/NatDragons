@@ -1736,7 +1736,61 @@ function generateHtmlBasedOnBlockNumber(blockNumber) {
     document.getElementById('dragonviewer').innerHTML = htmlContent
 }
 </script>
+ <script>
+        let blockParam = getParameterByName('block');
 
+        //retrieve block parameter from url
+        // Function to retrieve parameter from URL
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function onDOMLoaded() {
+            // Retrieve content inscription id
+            let mintText = document.getElementById('preview').getAttribute('mint')
+
+            // Check no mint provided
+            if (mintText.includes('MINT_INSCRIPTION_ID')) {
+                let input = document.getElementById('blk')
+                input.style.display = 'block'
+                input.style.position = 'absolute'
+                input.style.fontSize = '20px'
+                input.style.margin = '20px'
+                input.style.top = '0'
+                input.style.right = '0'
+                input.value = blockNumber
+                input.addEventListener('input', (event) => {
+                    blockNumber = input.value
+                    update()
+                })
+                update()
+            }
+            // Mint was provided
+            else {
+                const request = new XMLHttpRequest()
+                try {
+                    request.open('GET', '/content/' + mintText)
+                    request.responseType = 'text'
+                    request.addEventListener('load', () => initialize(request.response))
+                    request.addEventListener('error', () => console.error('XHR error'))
+                    request.send()
+                } catch (error) {
+                    console.error(`XHR error ${request.status}`)
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            if (blockParam !== null) {
+                blockNumber = blockParam
+                update()
+            }
+            else {
+                onDOMLoaded()
+            }
+        });
+    </script>
 </body>
 
 
